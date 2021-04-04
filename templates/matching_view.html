@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Strona główna {% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="col-md-8 offset-md-2">
+    <img src="media/images/{{dog.image}}" width="150" alt="">
+    <h2>{{ dog.name }}</h2>
+    <h3>Wiek: {{ dog.age }}</h3>
+    <p> {{ dog.description }}</p>
+    <div class="col-xs-4">
+    <button type="button" class="btn btn-danger" id="btn-reject" data-id="{{dog.id}}">Nope</button>
+    <button type="button" class="btn btn-primary" id="btn-accept" data-id="{{dog.id}}">Like!</button>
+    </div>
+</div>
+{% endblock %}
+
+

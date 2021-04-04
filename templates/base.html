@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="wrapper-all">
+<div id="content" class="main">
+
+    <!-- NAVBAR-->
+    <nav class="navbar navbar-expand-lg py-3 navbar-light light shadow-sm" style="background-color:#CCD9E3;">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <!-- Logo Image -->
+                <img src="{% static 'images/dog-2166765_1280.png' %}" width="50" alt=""
+                     class="d-inline-block align-top mr-2">
+            </a>
+
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul id="menu_list" class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Strona główna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/messages">Wiadomości</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/matches">Matche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Wyloguj</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+</div>
+<!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom">
+    <div class="container text-center">
+        {% if username %}
+        {{ username }}
+        <a href="/logout">Wyloguj</a>
+        {% else %}
+        <a href="/login">Zaloguj</a>
+        {% endif %}
+      <small>Copyright &copy; Psinder</small>
+    </div>
+  </footer>
+<!-- Footer -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+
+</body>
+</html>
+

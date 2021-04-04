@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
-from matchingapp.views import MainView
+
+from matchingapp.views import MainView, MatchView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', MainView.as_view(), name="index"),
+    # url(r'^$', MainView.as_view(), name="index"),
+    url(r'^matching/', MatchView.as_view()),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
